@@ -8,15 +8,7 @@ class Block {
         this.data = data;
     }
 
-    toString() {
-        return `Block -
-            Timestamp: ${this.timestamp}
-            Last Hash: ${this.lastHash.substring(0, 10)}
-            Hash     : ${this.hash.substring(0, 10)}
-            Data     : ${this.data}`;
-    }
-
-    static genesis(){
+    static genesis() {
         return new this("Genesis time", "----", "f1r57 h45h", []);
     }
 
@@ -30,6 +22,20 @@ class Block {
 
     static hash(timestamp, lastHash, data) {
         return SHA256(`${timestamp}${lastHash}${data}`).toString();
+    }
+
+    static blockhash(block) {
+        const {timestamp, lastHash, data} = block;
+
+        return Block.hash(timestamp, lastHash, data)
+    }
+
+    toString() {
+        return `Block -
+            Timestamp: ${this.timestamp}
+            Last Hash: ${this.lastHash.substring(0, 10)}
+            Hash     : ${this.hash.substring(0, 10)}
+            Data     : ${this.data}`;
     }
 }
 
