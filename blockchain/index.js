@@ -1,6 +1,6 @@
 const Block = require('./block');
 
-class Blockchain {
+class Index {
     constructor() {
         this.chain = [Block.genesis()];
     }
@@ -31,7 +31,7 @@ class Blockchain {
             return;
         }
 
-        if (!Blockchain.isValidChain(newChain)) {
+        if (!Index.isValidChain(newChain)) {
             console.log("The received chain is not valid.");
             return;
         }
@@ -41,4 +41,4 @@ class Blockchain {
     }
 }
 
-module.exports = Blockchain;
+module.exports = Index;
