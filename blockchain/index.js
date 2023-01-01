@@ -12,7 +12,7 @@ class Index {
             const block = chain[i];
             const lastBlock = chain[i - 1];
 
-            if (block.lastHash !== lastBlock.hash || block.hash !== Block.blockhash(block)) return false;
+            if (block.lastHash !== lastBlock.hash || block.hash !== Block.blockHash(block)) return false;
         }
 
         return true;
