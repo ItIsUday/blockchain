@@ -49,7 +49,7 @@ describe("Transaction", () => {
     });
   });
 
-  describe("updating a transaction", () => {
+  describe("and updating a transaction", () => {
       let nextAmount, nextRecipient;
 
       beforeEach(() => {
