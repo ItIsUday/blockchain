@@ -28,5 +28,20 @@ app.post("/mine", (req, res) => {
   res.json(bc.chain);
 });
 
+app.get("/transactions", (req, res) => {
+  res.json(tp.transactions);
+});
+
+app.post("/transact", (req, res) => {
+  const { recipient, amount } = req.body;
+  const transaction = wallet.createTransaction(recipient, amount, tp);
+  p2pServer.broadcastTransaction(transaction);
+  res.json(tp.transactions);
+});
+
+app.get("/public-key", (req, res) => {
+  res.json({ publicKey: wallet.publicKey });
+});
+
 app.listen(HTTP_PORT, () => console.log(`Listening on port ${HTTP_PORT}`));
 p2pServer.listen();
