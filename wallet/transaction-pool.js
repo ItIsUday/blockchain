@@ -40,6 +40,10 @@ class TransactionPool {
       return true;
     });
   }
+
+  clear() {
+    this.transactions = [];
+  }
 }
 
 module.exports = TransactionPool;
